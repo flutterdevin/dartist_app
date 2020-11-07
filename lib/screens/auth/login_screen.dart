@@ -1,4 +1,5 @@
 import 'package:dartist_app/components/my_button.dart';
+import 'package:dartist_app/screens/category_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -134,12 +135,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (user != null) {
 //                      SharedPreferences prefs = await SharedPreferences.getInstance();
 //                      prefs.setString('email', _emailInputController.text);
-//                                  Navigator.push(
-//                                      context,
-//                                      MaterialPageRoute(
-//                                        builder: (context) => HomeScreen(),
-//                                        settings: RouteSettings(name: 'Home Screen'),
-//                                      ));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CategoriesScreen(),
+                                    settings: RouteSettings(name: 'Category Screen'),
+                                  ));
                             }
                           } catch (err) {
                             AlertDialog(

@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-import '../home_screen.dart';
 import 'login_screen.dart';
 
 final _auth = FirebaseAuth.instance;
@@ -29,6 +28,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   final _usernameInputController = TextEditingController();
   final _emailInputController = TextEditingController();
+  final _phoneNoController = TextEditingController();
   final _pwdInputController = TextEditingController();
   final _confirmPwdInputController = TextEditingController();
 
@@ -139,6 +139,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           height: 16,
                         ),
                         TextInputField(
+                          controller: _usernameInputController,
+                          textInputType: TextInputType.phone,
+                          label: "Phone No.",
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        TextInputField(
                           controller: _emailInputController,
                           validator: (value) {
                             if (value.isEmpty) {
@@ -227,6 +235,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   .set({
                                     "uid": currentUser.user.uid,
                                     "name": _usernameInputController.text,
+                                    "phoneNo": _phoneNoController,
                                     "email": _emailInputController.text,
                                     "isHirer": isHirer,
                                   })
